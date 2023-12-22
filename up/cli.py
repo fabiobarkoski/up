@@ -5,7 +5,7 @@ from pathlib import Path
 from up.logging import log
 from up import home, up_dir, yaml
 
-def init():
+def init(prompt):
     log.info('Initializing up...')
     if os.path.exists(up_dir):
         log.info('seems that up is already initialized')
@@ -27,8 +27,9 @@ def add(prompt):
         file.write(r.content)
     log.info('download ended')
 
-def remove():
-    print('remove')
+def remove(prompt):
+    log.info('removing '+ prompt[1]+'...')
+    os.remove(Path(up_dir, prompt[1]+'.yaml'))
 
 _reserved_keywords = {
     "init": init,

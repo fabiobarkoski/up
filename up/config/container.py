@@ -16,7 +16,7 @@ class ContainerRun:
     # Container Configuration
     name: str = field(kw_only=True, default="")
     image: str = field(kw_only=True, default="")
-    command: list[str]  = field(kw_only=True, default_factory=list)
+    command: str  = field(kw_only=True, default="")
     environment: dict[str, str]  = field(kw_only=True, default_factory=dict)
     ports: dict[str, str]  = field(kw_only=True, default_factory=dict)
     volumes: dict[str, str]  = field(kw_only=True, default_factory=dict)
